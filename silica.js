@@ -6,6 +6,7 @@ const { prefix, token } = require('./config.json');
 
 client.commands = new Discord.Collection();
 moment = require('moment')
+backup = require('./backups/backup')
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -41,21 +42,26 @@ client.on('message', message => {
   });
 
 client.once('ready', () => {
+  backup.execute(client)
 	//console.log('Silica has gone online as of: ' + Date.now() + ' Unix time');
-	//client.user.setActivity("Probably osu");
+	client.user.setActivity("\"I\'m w\"  -einsheriff");
 	//client.user.setActivity( 'Rhys is live', { type: 'STREAMING', url: 'https:///www.twitch.tv/Rhysllewellyn1' })
-  client.user.setActivity('Rhys\' pc while he sleeps', { type: 'WATCHING' });
+  //client.user.setActivity('Rhys\' pc while he sleeps', { type: 'WATCHING' });
 });
 
 console.log(`\x1B[92m| Online:    | \x1b[96mSilica Online!                        \x1B[92m | ${moment(Date.now())}\x1B[0m`)
 
+
+
 client.on('message' , (message) => {
     if (message.author.bot) return
-	console.log(`[${message.author.tag}]: ${message.content}`);
+	//chat logs console.log(`[${message.author.tag}]: ${message.content}`);
 if (message.content === '-12ms') {
     message.channel.send('hell yeah -12ms, im fast as fuck boi')
 }
 });
+
+
 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -69,7 +75,7 @@ client.on('message', message => {
 		client.commands.get(command).execute(message, args);
 	} catch (error) {
 		console.error(error);
-		message.reply('there was an error trying to execute that command! If the error persistes contact Rhys Llewellyn #3572');
+		message.reply('whoops looks like rhys\' code broke again If the error persistes contact Rhys Llewellyn #3527');
 	}
 });
 
