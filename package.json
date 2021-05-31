@@ -1,0 +1,23 @@
+{
+  "name": "newdsbot",
+  "version": "1.0.0",
+  "description": "discord bit",
+  "main": "silica.js",
+  "scripts": {
+    "test": "lamo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhys1514/silica-v2.git"
+  },
+  "author": "Rhys llewellyn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rhys1514/silica-v2/issues"
+  },
+  "homepage": "https://github.com/rhys1514/silica-v2#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "moment": "^2.29.1"
+  }
+}
