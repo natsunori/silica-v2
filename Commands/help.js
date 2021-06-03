@@ -12,8 +12,8 @@ module.exports = {
             .addField("**ping          **", `${'Displays the bots latency and the api latency'}` , true)
             .addField("**serverinfo          **", `${'Displays the current servers info (has been made redundant, to be removed)'}` , true)
             .addField("**stats           **", `${'(*new) Dispays bot info'}` , true)
-            .addField("**uptime          **", `${'Displays the bots uptime in seconds (has been made redundant, to be removed)'}` , true)
             .addField("**bruh           **", `${'Legit just bruh\'s in chat'}` , true)
+            .addField("**say          **", `${'make silica say something'}` , true)
             message.channel.send(embed).then(() => { message.channel.stopTyping() })
         })
     }

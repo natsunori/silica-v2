@@ -44,7 +44,7 @@ client.on('message', message => {
 client.once('ready', () => {
   backup.execute(client)
 	//console.log('Silica has gone online as of: ' + Date.now() + ' Unix time');
-	client.user.setActivity("\"I\'m w\"  -einsheriff");
+	client.user.setActivity("going down for maintainance");
 	//client.user.setActivity( 'Rhys is live', { type: 'STREAMING', url: 'https:///www.twitch.tv/Rhysllewellyn1' })
   //client.user.setActivity('Rhys\' pc while he sleeps', { type: 'WATCHING' });
 });
@@ -55,9 +55,17 @@ console.log(`\x1B[92m| Online:    | \x1b[96mSilica Online!                      
 
 client.on('message' , (message) => {
     if (message.author.bot) return
-	//chat logs console.log(`[${message.author.tag}]: ${message.content}`);
+   console.log(`[${message.author.tag}]: ${message.content}`);
 if (message.content === '-12ms') {
     message.channel.send('hell yeah -12ms, im fast as fuck boi')
+}
+});
+
+client.on('message' , (message) => {
+ if (message.author.bot) return
+//chat logs console.log(`[${message.author.tag}]: ${message.content}`);
+if (message.content === 'succulent') {
+  message.channel.send('succulent')
 }
 });
 
