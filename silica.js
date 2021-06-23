@@ -44,9 +44,9 @@ client.on('message', message => {
 client.once('ready', () => {
   backup.execute(client)
 	//console.log('Silica has gone online as of: ' + Date.now() + ' Unix time');
-	client.user.setActivity("going down for maintainance");
+	//client.user.setActivity("going down for maintainance");
 	//client.user.setActivity( 'Rhys is live', { type: 'STREAMING', url: 'https:///www.twitch.tv/Rhysllewellyn1' })
-  //client.user.setActivity('Rhys\' pc while he sleeps', { type: 'WATCHING' });
+  client.user.setActivity('Rhys\' pc while he sleeps', { type: 'WATCHING' });
 });
 
 console.log(`\x1B[92m| Online:    | \x1b[96mSilica Online!                        \x1B[92m | ${moment(Date.now())}\x1B[0m`)
