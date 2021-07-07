@@ -7,6 +7,8 @@ module.exports = {
         message.channel.send('Loading data').then (async (msg) =>{
             msg.delete()
             const embed = new Discord.MessageEmbed()
+            .setColor('#eb34e8')
+            .setAuthor('Help')
             .addField("**avatar           **", `${'Displays your avatar'}` , true)
             .addField("**invite          **", `${'redundant to be removed'}` , true)
             .addField("**ping          **", `${'Displays the bots latency and the api latency'}` , true)
@@ -14,6 +16,8 @@ module.exports = {
             .addField("**stats           **", `${'(*new) Dispays bot info'}` , true)
             .addField("**bruh           **", `${'Legit just bruh\'s in chat'}` , true)
             .addField("**say          **", `${'make silica say something'}` , true)
+            .addField("**Flip          **", `${'flip a coin '}` , true)
+            .addField("**botinfo         **", `${'silicas development'}` , true)
             message.channel.send(embed).then(() => { message.channel.stopTyping() })
         })
     }

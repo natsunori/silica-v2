@@ -4,6 +4,7 @@ const config = require('./config.json');
 const client = new Discord.Client();
 const { prefix, token } = require('./config.json');
 
+
 client.commands = new Discord.Collection();
 moment = require('moment')
 backup = require('./backups/backup')
@@ -46,20 +47,29 @@ client.once('ready', () => {
 	//console.log('Silica has gone online as of: ' + Date.now() + ' Unix time');
 	//client.user.setActivity("going down for maintainance");
 	//client.user.setActivity( 'Rhys is live', { type: 'STREAMING', url: 'https:///www.twitch.tv/Rhysllewellyn1' })
-  client.user.setActivity('Rhys\' pc while he\'s away', { type: 'WATCHING' });
-  client.channels.cache.get('837352880494870560').send('Silica has gone online in STS as scheduled at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
-  //client.channels.cache.get('839667185600954368').send('Silica has gone online in bonk the homies as scheduled at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") ); 
-  client.channels.cache.get('848958525240770591').send('Silica has gone online in The Church of Jeff as scheduled at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") + ' scheduled by Sysadm' );
-  client.channels.cache.get('816089636455055380').send('Silica has gone online in Shhh\'s Hiding hole as scheduled at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
+  client.user.setActivity('With your mum', { type: 'PLAYING' });
+  //client.channels.cache.get('837352880494870560').send('Silica has gone online in STS as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
+  //client.channels.cache.get('839667185600954368').send('Silica has gone online in bonk the homies as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") ); 
+  //client.channels.cache.get('848958525240770591').send('Silica has gone online in The Church of Jeff as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") + ' scheduled by Sysadm' );
+  //client.channels.cache.get('816089636455055380').send('Silica has gone online in Shhh\'s Hiding hole as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
+  //client.channels.cache.get('788827501941489675').send('Silica has gone online in tortles server as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
 });
 
 console.log(`\x1B[92m| Online:    | \x1b[96mSilica Online!                        \x1B[92m | ${moment(Date.now())}\x1B[0m`)
+
+client.once('reconnecting', () => {
+  console.log('Reconnecting!')
+});
+
+client.once('disconnect', () => {
+  console.log('Disconnect!');
+ });
 
 
 
 client.on('message' , (message) => {
     if (message.author.bot) return
-   console.log(`[${message.author.tag}]: ${message.content}`);
+   //console.log(`[${message.author.tag}]: ${message.content}`);
 if (message.content === '-12ms') {
     message.channel.send('hell yeah -12ms, im fast as fuck boi')
 }
@@ -91,6 +101,9 @@ client.on('message', message => {
 		message.reply('whoops looks like rhys\' code broke again If the error persistes contact Rhys Llewellyn #3527');
 	}
 });
+
+
+
 
 
 

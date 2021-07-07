@@ -7,6 +7,8 @@ const Discord = require('discord.js'), { prefix, colors } = require("../config.j
             message.channel.send('Loading data').then (async (msg) =>{
                 msg.delete()
                 const embed = new Discord.MessageEmbed()
+            .setColor('#eb34e8')
+            .setAuthor('Stats')
             .addField("**Server info**",  `${message.guild.name}\nTotal members: ${message.guild.memberCount}`)
             .addField("**Servers**",client.guilds.cache.size, true)
             .addField("**Memory Usage**", `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB/${Math.round(process.memoryUsage().rss / 1024 / 1024)}MB`, true)
