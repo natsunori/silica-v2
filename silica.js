@@ -42,12 +42,20 @@ client.on('message', message => {
     }
   });
 
+
+let statuses = ['https://github.com/rhys1514', 'https://rhys1514.github.io/', 'WLSS102382', 'Project deepvault']
+
 client.once('ready', () => {
   backup.execute(client)
+
+  setInterval(function() {
+  let status = statuses[Math.floor(Math.random()*statuses.length)];
+  client.user.setPresence({ activity: {name: status, type: 'WATCHING'}, status: 'online'});
+  }, 10000)
 	//console.log('Silica has gone online as of: ' + Date.now() + ' Unix time');
 	//client.user.setActivity("going down for maintainance");
 	//client.user.setActivity( 'Rhys is live', { type: 'STREAMING', url: 'https:///www.twitch.tv/Rhysllewellyn1' })
-  client.user.setActivity('With your mum', { type: 'PLAYING' });
+  //client.user.setActivity('Yo mama', { type: 'WATCHING' });
   //client.channels.cache.get('837352880494870560').send('Silica has gone online in STS as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
   //client.channels.cache.get('839667185600954368').send('Silica has gone online in bonk the homies as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") ); 
   //client.channels.cache.get('848958525240770591').send('Silica has gone online in The Church of Jeff as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") + ' scheduled by Sysadm' );
@@ -72,6 +80,15 @@ client.on('message' , (message) => {
    //console.log(`[${message.author.tag}]: ${message.content}`);
 if (message.content === '-12ms') {
     message.channel.send('hell yeah -12ms, im fast as fuck boi')
+}
+});
+
+client.on('message' , (message) => {
+  if (message.author.bot) return
+ //console.log(`[${message.author.tag}]: ${message.content}`);
+if (message.content === 'sus') {
+  message.channel.send('Did some one say sus??? amoung us?? sussy baka?? when the imposta is sus??????  ')
+  message.channel.send('https://tenor.com/view/csp-gif-21091124')
 }
 });
 

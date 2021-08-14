@@ -5,6 +5,8 @@
   "main": "silica.js",
   "scripts": {
     "test": "nodemon ./src/bot.js"
+  
+  
   },
   "repository": {
     "type": "git",
@@ -17,8 +19,6 @@
   },
   "homepage": "https://github.com/rhys1514/silica-v2#readme",
   "dependencies": {
-    "discord.js": "^12.5.3",
-    "moment": "^2.29.1",
-    "moment-duration-format": "^2.3.2"
+    "discord.js": "^12.5.3"
   }
 }
