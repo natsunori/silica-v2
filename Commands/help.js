@@ -1,9 +1,9 @@
 const Discord = require('discord.js'), { prefix, colors } = require("../config.json");
 module.exports = {
 	name: 'help',
-	description: 'help command',
+	description: 'Ping!',
 	execute(message, args){
-        const client = message.client
+        const client = message.client, APIPing = Math.round(client.ws.ping)+ "ms";
         message.channel.send('Loading data').then (async (msg) =>{
             msg.delete()
             const embed = new Discord.MessageEmbed()
@@ -18,6 +18,8 @@ module.exports = {
             .addField("**say          **", `${'make silica say something'}` , true)
             .addField("**Flip          **", `${'flip a coin '}` , true)
             .addField("**botinfo         **", `${'silicas development'}` , true)
+            .addField("**uwu         **", `${'posts gif in chat'}` , true)
+            .addField("**courbi         **", `${'mapped too only two users dont bother trying to use it'}` , true)
             message.channel.send(embed).then(() => { message.channel.stopTyping() })
         })
     }
