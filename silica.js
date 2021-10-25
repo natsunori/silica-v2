@@ -17,33 +17,8 @@ for (const file of commandFiles) {
 }
 
 
-client.on('message', message => {
-    if (!message.guild) return; 
-    if (message.content.startsWith('!kick')) {
-      const user = message.mentions.users.first(); 
-      if (user) {
-        const member = message.guild.member(user);
-        if (member) {
-          member
-            .kick('kicked at: ' + Date.now() + (' unix time'))
-            .then(() => {
-              message.reply(`Successfully kicked ${user.tag}`);
-            })
-            .catch(err => {
-              message.reply('I was unable to kick the member');
-              console.error(err);
-            });
-        } else {
-          message.reply("That user isn't in this guild!");
-        }
-      } else {
-        message.reply("You didn't mention the user to kick!");
-      }
-    }
-  });
 
-
-let statuses = ['https://github.com/rhys1514', 'https://rhys1514.github.io/', 'WLSS102382', 'Project deepvault']
+let statuses = ['https://github.com/natsunori', 'https://natsunori.github.io/', 'WLSS102382', 'Project deepvault', 'courbie kinda cute ngl' ]
 
 client.once('ready', () => {
   backup.execute(client)
@@ -77,16 +52,28 @@ client.once('disconnect', () => {
 
 client.on('message' , (message) => {
     if (message.author.bot) return
-   //console.log(`[${message.author.tag}]: ${message.content}`);
+   
 if (message.content === '-12ms') {
     message.channel.send('hell yeah -12ms, im fast as fuck boi')
 }
 });
 
+//client.on('message' , (message) => {
+//  if (message.author.bot) return
+//if (message.content === 's!wlss102382') {
+  //client.channels.cache.get('837352880494870560').send('------------SYSTEM ALERT------------ \n \n silica is back lol \n \n ------------------------------------------\n Received at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
+  //client.channels.cache.get('839667185600954368').send('------------SYSTEM ALERT------------ \n \n silica is back lol \n \n ------------------------------------------\n Received at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
+  //client.channels.cache.get('848958525240770591').send('------------SYSTEM ALERT------------ \n \n silica is back lol \n \n ------------------------------------------\n Received at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
+  //client.channels.cache.get('816089636455055380').send('------------SYSTEM ALERT------------ \n \n silica is back lol \n \n ------------------------------------------\n Received at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
+  //client.channels.cache.get('885447164157906946').send('------------SYSTEM ALERT------------ \n \n silica is back lol \n \n ------------------------------------------\n Received at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
+//}
+//});
+
+
 client.on('message' , (message) => {
   if (message.author.bot) return
  //console.log(`[${message.author.tag}]: ${message.content}`);
-if (message.content === 'sus') {
+if (message.content === '22650901') {
   message.channel.send('Did some one say sus??? amoung us?? sussy baka?? when the imposta is sus??????  ')
   message.channel.send('https://tenor.com/view/csp-gif-21091124')
 }
@@ -102,7 +89,7 @@ if (message.content === 'succulent') {
 });
 
 
-
+//command handler 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -115,7 +102,7 @@ client.on('message', message => {
 		client.commands.get(command).execute(message, args);
 	} catch (error) {
 		console.error(error);
-		message.reply('whoops looks like rhys\' code broke again If the error persistes contact Rhys Llewellyn #3527');
+		message.reply('whoops looks like natsunori\'s code broke again If the error persistes contact natsunori #3527');
 	}
 });
 
