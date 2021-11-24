@@ -9,35 +9,28 @@ client.commands = new Discord.Collection();
 moment = require('moment')
 backup = require('./backups/backup')
 
+//declaring command files
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-
+//declaring command files
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
 
 
-
+//rich presence array
 let statuses = ['https://github.com/natsunori', 'https://natsunori.github.io/', 'WLSS102382', 'Project deepvault', 'courbie kinda cute ngl' ]
-
+//readying the client and starting rich presence
 client.once('ready', () => {
+  //for the backup client controlling keep alive logs 
   backup.execute(client)
 
   setInterval(function() {
   let status = statuses[Math.floor(Math.random()*statuses.length)];
   client.user.setPresence({ activity: {name: status, type: 'WATCHING'}, status: 'online'});
   }, 10000)
-	//console.log('Silica has gone online as of: ' + Date.now() + ' Unix time');
-	//client.user.setActivity("going down for maintainance");
-	//client.user.setActivity( 'Rhys is live', { type: 'STREAMING', url: 'https:///www.twitch.tv/Rhysllewellyn1' })
-  //client.user.setActivity('Yo mama', { type: 'WATCHING' });
-  //client.channels.cache.get('837352880494870560').send('Silica has gone online in STS as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
-  //client.channels.cache.get('839667185600954368').send('Silica has gone online in bonk the homies as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") ); 
-  //client.channels.cache.get('848958525240770591').send('Silica has gone online in The Church of Jeff as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") + ' scheduled by Sysadm' );
-  //client.channels.cache.get('816089636455055380').send('Silica has gone online in Shhh\'s Hiding hole as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
-  //client.channels.cache.get('788827501941489675').send('Silica has gone online in tortles server as Scheduled ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
 });
-
+//silicas start message
 console.log(`\x1B[92m| Online:    | \x1b[96mSilica Online!                        \x1B[92m | ${moment(Date.now())}\x1B[0m`)
 
 client.once('reconnecting', () => {
@@ -58,35 +51,33 @@ if (message.content === '-12ms') {
 }
 });
 
-//client.on('message' , (message) => {
-//  if (message.author.bot) return
-//if (message.content === 's!wlss102382') {
-  //client.channels.cache.get('837352880494870560').send('------------SYSTEM ALERT------------ \n \n silica is back lol \n \n ------------------------------------------\n Received at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
-  //client.channels.cache.get('839667185600954368').send('------------SYSTEM ALERT------------ \n \n silica is back lol \n \n ------------------------------------------\n Received at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
-  //client.channels.cache.get('848958525240770591').send('------------SYSTEM ALERT------------ \n \n silica is back lol \n \n ------------------------------------------\n Received at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
-  //client.channels.cache.get('816089636455055380').send('------------SYSTEM ALERT------------ \n \n silica is back lol \n \n ------------------------------------------\n Received at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
-  //client.channels.cache.get('885447164157906946').send('------------SYSTEM ALERT------------ \n \n silica is back lol \n \n ------------------------------------------\n Received at ' + moment().utcOffset(+1).format("dddd, MMMM Do YYYY, h:mm:ss a") );
-//}
-//});
 
-
+//The sus command that was disabled
 client.on('message' , (message) => {
   if (message.author.bot) return
- //console.log(`[${message.author.tag}]: ${message.content}`);
-if (message.content === '22650901') {
+if (message.content === '102382') {
   message.channel.send('Did some one say sus??? amoung us?? sussy baka?? when the imposta is sus??????  ')
   message.channel.send('https://tenor.com/view/csp-gif-21091124')
 }
 });
 
-
+// suculent autoresponce
 client.on('message' , (message) => {
  if (message.author.bot) return
-//chat logs console.log(`[${message.author.tag}]: ${message.content}`);
+ //console.log(`[${message.author.tag}]: ${message.content}`);
 if (message.content === 'succulent') {
   message.channel.send('succulent')
 }
 });
+
+client.on('message' , (message) => {
+ if (message.author.bot) return
+ //console.log(`[${message.author.tag}]: ${message.content}`);
+if (message.content === '<@!448590726217859072>') {
+  message.channel.send('<@!448590726217859072>')
+}
+});
+
 
 
 //command handler 
@@ -108,9 +99,7 @@ client.on('message', message => {
 
 
 
-
-
-
+   //calling token from config
 		client.login(config.token);
 
 

@@ -6,7 +6,7 @@ module.exports = {
     execute(message, args){
         message.delete()
         const embed = new Discord.MessageEmbed()
-        .addField("ALERT           ", `${'Silica is going down for planned maintainance sorry for the inconveinece, contact Rhys llewellyn #3527 for more info'}` , true)
+        .addField("ALERT           ", `${'Silica is entering debug mode, some commands may be unavalible'}` , true)
         message.channel.send(embed)
     }
 }

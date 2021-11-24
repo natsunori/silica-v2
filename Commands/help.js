@@ -20,6 +20,7 @@ module.exports = {
             .addField("**botinfo         **", `${'silicas development'}` , true)
             .addField("**uwu         **", `${'posts gif in chat'}` , true)
             .addField("**courbi         **", `${'mapped too only two users dont bother trying to use it'}` , true)
+            .addField("**sus       **", `${'note this command has been disabled for the foreseeable future'}` , true)
             message.channel.send(embed).then(() => { message.channel.stopTyping() })
         })
     }
