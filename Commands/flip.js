@@ -1,25 +1,28 @@
 const Discord = require('discord.js');
-module.exports = {
-	name: 'flip',
-	description: 'Bruh\'s ',
-	execute(message, args) {
-        message.delete()
-		{function doRandHT() {
-            var rand = ['HEADS!','TAILS!'];
-            
-            return rand[Math.floor(Math.random()*rand.length)];
-            }
-            
-             const embed = {
-            "title": `Here is the winner!`,
-            "description": doRandHT(),
-            "color": '#eb34e8',
-            };
-            message.channel.send({ embed });
-            
-            
-            };
-            
 
-	},
-};
+module.exports = {
+    name: 'flip',
+    description: 'Flip a coin',
+    execute(message, _args) {
+        /**
+         * Get a random side of a coin
+         * @returns Random coin side
+         */
+        function doRandHT() {
+            var rand = ['HEADS!', 'TAILS!'];
+            return rand[Math.floor(Math.random() * rand.length)];
+        }
+
+        // Delete the users message
+        message.delete();
+
+        // Construct embed
+        const embed = new Discord.MessageEmbed();
+        embed.setTitle('Here is the winner');
+        embed.setDescription(doRandHT());
+        embed.setColor('#eb34e8');
+
+        // Send the embed
+        message.channel.send(embed);
+    }
+}
