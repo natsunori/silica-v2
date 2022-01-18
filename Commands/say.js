@@ -1,16 +1,15 @@
-const { prefix } = require("../config.json");
+const { prefix } = require('../config.json');
+
 module.exports = {
     name: 'say',
-    aliases: ['say'],
-    description: 'You can make the bot say whatever.',
-    usage: `\`${prefix}say\``,
-    guildOnly: true,
-    permissions: 'ADMINISTRATOR',
-    cooldown: 2.5,
-    category: 'fun',
+    description: 'You can make the bot say whatever',
     execute(message, args){
         let sayMessage = args.join(" ");
-        if(!args[0]){ sayMessage = `You must give me something to say.`, message.channel.send(sayMessage).then(() => {message.channel.stopTyping()})} 
-        else {message.delete(); message.channel.send(sayMessage).then(() => {message.channel.stopTyping()})}
+        // If the user didn't provide something to say
+        if (!args[0]) return message.channel.send('You must provide something to say');
+        // Delete the users message
+        message.delete();
+        // Repeat what the user said
+        message.channel.send(sayMessage);
     }
 }
