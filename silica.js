@@ -2,87 +2,68 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const config = require('./config.json');
 const client = new Discord.Client();
+const moment = require('moment');
+const backup = require('./backups/backup');
 const { prefix, token } = require('./config.json');
 
-
 client.commands = new Discord.Collection();
-moment = require('moment')
-backup = require('./backups/backup')
 
-//declaring command files
+// Declaring command files
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-//declaring command files
+// Declaring command files
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
 
 
-//rich presence array
-let statuses = ['https://github.com/natsunori', 'https://natsunori.github.io/', 'WLSS102382', 'Project deepvault', 'courbie kinda cute ngl' ]
-//readying the client and starting rich presence
+// Rich presence array
+let statuses = ['https://github.com/natsunori', 'https://natsunori.github.io/', 'WLSS102382', 'Project deepvault', 'courbie kinda cute ngl']
+// Readying the client and starting rich presence
 client.once('ready', () => {
-  //for the backup client controlling keep alive logs 
-  backup.execute(client)
+	// For the backup client controlling keep alive logs 
+	backup.execute(client)
 
-  setInterval(function() {
-  let status = statuses[Math.floor(Math.random()*statuses.length)];
-  client.user.setPresence({ activity: {name: status, type: 'WATCHING'}, status: 'online'});
-  }, 10000)
+	setInterval(function () {
+		let status = statuses[Math.floor(Math.random() * statuses.length)];
+		client.user.setPresence({ activity: { name: status, type: 'WATCHING' }, status: 'online' });
+	}, 10000)
 });
-//silicas start message
+
+// Silicas start message
 console.log(`\x1B[92m| Online:    | \x1b[96mSilica Online!                        \x1B[92m | ${moment(Date.now())}\x1B[0m`)
 
 client.once('reconnecting', () => {
-  console.log('Reconnecting!')
+	console.log('Reconnecting!')
 });
 
 client.once('disconnect', () => {
-  console.log('Disconnect!');
- });
+	console.log('Disconnect!');
+});
 
+client.on('message', (message) => {
+	if (message.author.bot) return
 
-
-client.on('message' , (message) => {
-    if (message.author.bot) return
-   
-if (message.content === '-12ms') {
-    message.channel.send('hell yeah -12ms, im fast as fuck boi')
-}
+	if (message.content === '-12ms') {
+		message.channel.send('hell yeah -12ms, im fast as fuck boi')
+	}
 });
 
 
-//The sus command that was disabled
-client.on('message' , (message) => {
-  if (message.author.bot) return
-if (message.content === '102382') {
-  message.channel.send('Did some one say sus??? amoung us?? sussy baka?? when the imposta is sus??????  ')
-  message.channel.send('https://tenor.com/view/csp-gif-21091124')
-}
-});
-
-// suculent autoresponce
-client.on('message' , (message) => {
- if (message.author.bot) return
- //console.log(`[${message.author.tag}]: ${message.content}`);
-if (message.content === 'succulent') {
-  message.channel.send('succulent')
-}
-});
-
-client.on('message' , (message) => {
- if (message.author.bot) return
- //console.log(`[${message.author.tag}]: ${message.content}`);
-if (message.content === '<@!448590726217859072>') {
-  message.channel.send('<@!448590726217859072>')
-}
-});
-
-
-
-//command handler 
-client.on('message', message => {
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+// The sus command that was disabled
+client.on('message', (message) => {
+	if (message.author.bot) return;
+	// Permanent commands
+	if (message.content === '102382') {
+		message.channel.send('Did some one say sus??? amoung us?? sussy baka?? when the imposta is sus??????');
+		return message.channel.send('https://tenor.com/view/csp-gif-21091124');
+	} else if (message.content === 'succulent') {
+		return message.channel.send('succulent');
+	} else if (message.content === '<@!448590726217859072>') {
+		return message.channel.send('<@!448590726217859072>');
+	}
+	// Command handler
+	if (!message.content.startsWith(prefix)) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
@@ -97,9 +78,5 @@ client.on('message', message => {
 	}
 });
 
-
-
-   //calling token from config
-		client.login(config.token);
-
-
+// Requiring token from config
+client.login(config.token);
