@@ -1,4 +1,4 @@
-const Discord = require('discord.js'), { prefix, colors } = require('../config.json');
+const Discord = require('discord.js');
 
 module.exports = {
     name: 'stats',
@@ -15,7 +15,7 @@ module.exports = {
             .addField('**Uptime           **', `${client.uptime / 1000 + ' seconds'}`, true)
             .addField('**Latency           **', `${msg.createdTimestamp - message.createdTimestamp}ms`, true)
             .addField('**API Gateway       **', APIPing, true)
-            .addField('**Join the STS discord:          **', 'https://discord.gg/cRu8VUPFdU', true)
+            .addField('**Join the STS discord:          **', 'https://discord.gg/cRu8VUPFdU', true);
         message.channel.send(embed);
     }
 }

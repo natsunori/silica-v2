@@ -1,4 +1,5 @@
-const Discord = require('discord.js'), { prefix, colors } = require('../config.json');
+const Discord = require('discord.js');
+
 module.exports = {
 	name: 'invite',
 	description: 'View the bots invite link',

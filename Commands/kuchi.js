@@ -7,4 +7,4 @@ module.exports = {
 			message.channel.send('You\'re a beta male cuck');
         }
 	}
-};
+}

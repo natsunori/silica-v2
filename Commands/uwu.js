@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 module.exports = {
 	name: 'uwu',
 	description: 'uwu',
@@ -8,4 +6,4 @@ module.exports = {
         message.channel.send('That\'s very uwu of you');
 		message.channel.send('https://tenor.com/view/uwu-smug-anime-stare-gif-17603924');
 	}
-};
+}
