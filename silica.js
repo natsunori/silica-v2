@@ -19,7 +19,7 @@ for (const file of commandFiles) {
 
 
 //rich presence array
-let statuses = ['https://github.com/natsunori', 'https://natsunori.github.io/', 'WLSS102382', 'Project deepvault', 'courbie kinda cute ngl' ]
+let statuses = ['https://github.com/natsunori', 'https://natsunori.github.io/', 'WLSS102382', 'Project deepvault' ]
 //readying the client and starting rich presence
 client.once('ready', () => {
   //for the backup client controlling keep alive logs 
