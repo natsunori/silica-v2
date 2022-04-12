@@ -19,11 +19,16 @@ for (const file of commandFiles) {
 
 
 //rich presence array
-let statuses = ['https://github.com/natsunori', 'https://natsunori.github.io/', 'WLSS102382', 'Project deepvault' ]
+let statuses = ['https://github.com/natsunori', 'https://natsunori.github.io/', 'WLSS102382', 'Project deepvault', 'Dedotated wam?' ]
 //readying the client and starting rich presence
 client.once('ready', () => {
   //for the backup client controlling keep alive logs 
   backup.execute(client)
+  //client.channels.cache.get('927329094444646433').send('**ALERT:** \nSilica has been succesfully migrated back to the server and has returned to a fully operational status, thankyou for your patience futher safegaurds will be imposed in the future to mitigate the affect of situations such as these' );
+  //client.channels.cache.get('902337508929589298').send('**ALERT:** \nSilica has been succesfully migrated back to the server and has returned to a fully operational status, thankyou for your patience futher safegaurds will be imposed in the future to mitigate the affect of situations such as these' );
+  //client.channels.cache.get('848958525240770591').send('**ALERT:** \nSilica has been succesfully migrated back to the server and has returned to a fully operational status, thankyou for your patience futher safegaurds will be imposed in the future to mitigate the affect of situations such as these' );
+  //client.channels.cache.get('859823337375006781').send('**ALERT:** \nSilica has been succesfully migrated back to the server and has returned to a fully operational status, thankyou for your patience futher safegaurds will be imposed in the future to mitigate the affect of situations such as these' );
+
 
   setInterval(function() {
   let status = statuses[Math.floor(Math.random()*statuses.length)];
@@ -52,10 +57,11 @@ if (message.content === '-12ms') {
 });
 
 
+
 //The sus command that was disabled
 client.on('message' , (message) => {
   if (message.author.bot) return
-if (message.content === '102382') {
+if (message.content === 'uuddlrlr') {
   message.channel.send('Did some one say sus??? amoung us?? sussy baka?? when the imposta is sus??????  ')
   message.channel.send('https://tenor.com/view/csp-gif-21091124')
 }
@@ -64,7 +70,6 @@ if (message.content === '102382') {
 // suculent autoresponce
 client.on('message' , (message) => {
  if (message.author.bot) return
- //console.log(`[${message.author.tag}]: ${message.content}`);
 if (message.content === 'succulent') {
   message.channel.send('succulent')
 }
@@ -72,7 +77,6 @@ if (message.content === 'succulent') {
 
 client.on('message' , (message) => {
  if (message.author.bot) return
- //console.log(`[${message.author.tag}]: ${message.content}`);
 if (message.content === '<@!448590726217859072>') {
   message.channel.send('<@!448590726217859072>')
 }
@@ -96,6 +100,11 @@ client.on('message', message => {
 		message.reply('whoops looks like natsunori\'s code broke again If the error persistes contact natsunori #3527');
 	}
 });
+
+
+
+
+
 
 
 
