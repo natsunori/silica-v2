@@ -84,7 +84,7 @@ if (message.content === '<@!448590726217859072>') {
 
 
 
-//command handler 
+//command handler no touchy pls thanks
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
