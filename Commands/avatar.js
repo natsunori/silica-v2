@@ -1,3 +1,4 @@
+// icl i cant remember what i was doing here dont touch anything itll just fuck up
 const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'avatar',
